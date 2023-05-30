@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
 @SpringBootApplication
 @RestController
 public class LoggingApplicationDemo {
@@ -18,7 +19,7 @@ public class LoggingApplicationDemo {
 
 		log.debug("Request {}", name);
 		if(name.equals("test")) {
-			throw new RuntimeException("Exception Raised");
+			throw new MyCustomException("Exception Raised");
 		}
 		String response = "Hi " + name + " welcome to Logging Application.";
 		log.debug("Response {}", response);
